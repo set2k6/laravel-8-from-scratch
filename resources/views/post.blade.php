@@ -1,15 +1,23 @@
-<title>This is my blog</title>
-<link rel="stylesheet" href="/app.css">
+{{--@extends('components.layout')--}}
 
-<body>
+{{--@section('content')--}}
+{{--    <article>--}}
+{{--        <h1>{{ $post->title }}</h1>--}}
+{{--        <div>--}}
+{{--            {!! $post->body !!}--}}
+{{--        </div>--}}
+{{--    </article>--}}
 
-<article>
-    <h1></h1><?= $post->title; ?></h1>
-    <div>
-        <?= $post->body ; ?>
-    </div>
-</article>
+{{--    <a href="/">Go Back</a>--}}
+{{--@endsection--}}
 
-<a href="/">Go Back</a>
+<x-layout>
+    <article>
+        <h1>{{ $post->title }}</h1>
+        <div>
+            {!! $post->body !!}
+        </div>
+    </article>
 
-</body>
+    <a href="/">Go Back</a>
+</x-layout>

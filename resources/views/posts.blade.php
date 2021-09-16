@@ -1,21 +1,23 @@
-<!doctype html>
+{{--@extends('components.layout')--}}
 
-<title>This is my blog</title>
-<link rel="stylesheet" href="/app.css">
+{{--@section('content')--}}
 
-<body>
+<x-layout>
 
-    <?php foreach($posts as $post) : ?>
-    <article>
+        @foreach($posts as $post)
 
-        <h1>
-            <a href="/posts/<?= $post->slug; ?>">
-            <?= $post->title; ?>
-            </a>
-        </h1>
+            <article class="{{ $loop->even ? 'foobar' : '' }}">
 
-        <div><?= $post->excerpt; ?></div>
+                <h1>
+                    <a href="/posts/{{ $post->slug }}">
+                        {{ $post->title }}
+                    </a>
+                </h1>
 
-    </article>
-    <?php endforeach; ?>
-</body>
+                <div>{{ $post->excerpt }}</div>
+
+            </article>
+        @endforeach
+
+</x-layout>
+{{--@endsection--}}

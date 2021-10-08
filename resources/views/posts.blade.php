@@ -8,22 +8,12 @@
 
     <main class="max-w-6xl mx-auto mt-6 lg:mt-20 space-y-6">
 
-        <x-article-card-featured />
+        @if ($posts->count())
+            <x-post-grid :posts="$posts"/>
+        @else
+            <p class="text-center">Sorry, there are not posts yet.</p>
+        @endif
 
-{{--        <div class="lg:grid lg:grid-cols-2">--}}
-
-{{--            <x-article-card-post/>--}}
-{{--            <x-article-card-post/>--}}
-
-{{--        </div>--}}
-
-{{--        <div class="lg:grid lg:grid-cols-3">--}}
-
-{{--            <x-article-card-post/>--}}
-{{--            <x-article-card-post/>--}}
-{{--            <x-article-card-post/>--}}
-
-{{--        </div>--}}
     </main>
 
 

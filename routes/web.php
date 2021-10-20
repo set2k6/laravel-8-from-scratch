@@ -19,12 +19,19 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
+    $posts = Post::latest();
+
+    if (request('search')) {
+        $posts
+        ->where('title', 'like', '%'. request('search') . '%')
+        ->orWhere('body', 'like', '%'. request('search') . '%');
+    }
 
     DB::listen(function ($query){
         logger($query->sql, $query->bindings);
     });
     return view('posts',[
-        'posts'=> Post::latest()->with('category','author')->get(),
+        'posts'=> $posts ->get(),
         'categories'=> Category::all()
     ]);
 })->name('home');

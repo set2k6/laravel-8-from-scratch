@@ -3,10 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
-use Illuminate\Http\Request;
 
 class RegistrationController extends Controller
+
 {
+
     public function create() {
         return view('register.create');
     }
@@ -22,10 +23,12 @@ class RegistrationController extends Controller
         ]);
 
         User::create($attributes);
+//        $user = User::all();
 
+        auth()->login($user);
 //        session()->flash('success', 'Account successfully created.'); You can accomplish this with the redirect too
 
-        return redirect('/')->withflash('success', 'Account successfully created.');
+        return redirect('/')->with('success', 'Account successfully created.');
     }
 
 }

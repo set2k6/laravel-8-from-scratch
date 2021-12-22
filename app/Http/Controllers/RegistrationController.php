@@ -22,7 +22,7 @@ class RegistrationController extends Controller
 
         ]);
 
-        User::create($attributes);
+       $user = User::create($attributes);
 //        $user = User::all();
 
         auth()->login($user);

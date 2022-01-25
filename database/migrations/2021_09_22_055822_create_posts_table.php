@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePostsTable extends Migration
+class  CreatePostsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -19,6 +19,7 @@ class CreatePostsTable extends Migration
             $table->foreignId('category_id');
             $table->string('slug')->unique();
             $table->string('title');
+            $table->string('thumbnail')->nullable();
             $table->text('excerpt');
             $table->text('body');
             $table->timestamps();

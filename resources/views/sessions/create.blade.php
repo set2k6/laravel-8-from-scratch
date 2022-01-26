@@ -18,6 +18,7 @@
                            id="email"
                            value="{{ old('email') }}"
                            required
+                           autocomplete="username"
                     >
 
                     @error('email')
@@ -36,6 +37,7 @@
                            name="password"
                            id="password"
                            required
+                           autocomplete="new-password" {{--Helps password managers get a hint at what needs to be in field--}}
                     >
 
                     @error('password')

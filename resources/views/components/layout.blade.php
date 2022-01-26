@@ -29,7 +29,7 @@
                     </x-slot>
                     <x-dropdown-item href="/admin/posts/create">Dashboard</x-dropdown-item>
                     <x-dropdown-item href="/admin/posts/create" :active="request()->is('admin/posts/create')">New Post</x-dropdown-item>
-                    <x-dropdown-item href="#">Log Out</x-dropdown-item>
+                    <x-dropdown-item href="#" x-data="{}" @click.prevent="document.querySelector('#logout-form').submit()">Log Out</x-dropdown-item>
                 </x-dropdown>
 
                 <form id="logout-form" method="POST" action="/logout" class="hidden">

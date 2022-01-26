@@ -1,9 +1,5 @@
 <x-layout>
-    <section class="mt-8 max-w-md mx-auto mt-8 mb-2">
-        <h1 class="text-lg font-bold mb-4">Publish New Post</h1>
-    </section>
-
-    <x-panel class="max-w-md mx-auto">
+    <x-setting heading="Publish New Post">
         <section class="px-6 py-4">
             <form method="POST" action="/admin/posts" enctype="multipart/form-data">
                 @csrf
@@ -17,14 +13,14 @@
                 <x-form.field>
 
                     <x-form.label name="category" />
-                         <select name="category_id" id="category_id">
-                             @foreach( \App\Models\Category::all() as $category)
-                                 <option
-                                     value="{{ $category->id }}"
-                                     {{ old('$category_id') == $category->id ? 'selected' : '' }}>
-                                     {{ ucwords($category->name) }}</option>
-                             @endforeach
-                         </select>
+                    <select name="category_id" id="category_id">
+                        @foreach( \App\Models\Category::all() as $category)
+                            <option
+                                value="{{ $category->id }}"
+                                {{ old('$category_id') == $category->id ? 'selected' : '' }}>
+                                {{ ucwords($category->name) }}</option>
+                        @endforeach
+                    </select>
 
                     <x-form.error name="category" />
 
@@ -34,5 +30,5 @@
 
             </form>
         </section>
-    </x-panel>
+    </x-setting>
 </x-layout>
